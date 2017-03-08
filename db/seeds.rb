@@ -7,10 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 product_list = [
-  [ "banana", 2, "banana_image", "This is a banana" ],
-  [ "nerf gun", 25, "nerf_gun_image", "This is a nerf gun"]
+  # [ "banana", 2, "banana_image", "This is a banana" ],
+  # [ "nerf gun", 25, "nerf_gun_image", "This is a nerf gun"]
 ]
 
-product_list.each do |product|
-  Product.create( :name => product[0], :price => product[1], :image => product[2], :description => product[3] )
+10.times do
+  Product.create( :name => Faker::Book.title, :price => Faker::Number.between(5, 30), :image => Faker::Placeholdit.image, :description => Faker::Crypto.md5 )
 end

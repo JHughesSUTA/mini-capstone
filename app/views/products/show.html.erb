@@ -3,4 +3,7 @@
 <p>$<%= @product.price %><p>
 <p><%= @product.image %><p>
 <p><%= @product.description %><p>
+<%= form_tag "/products/#{@product.id}", method: :delete do %>
+  <input type="submit" value="delete product">
+<% end %>
 <a href="/products">Back to all products</a>

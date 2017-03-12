@@ -6,4 +6,5 @@
 <%= form_tag "/products/#{@product.id}", method: :delete do %>
   <input type="submit" value="delete product">
 <% end %>
+<a href="/products/<%= @product.id %>/edit">Edit Product</a>
 <a href="/products">Back to all products</a>

@@ -1,3 +1,16 @@
 // Place all the styles related to the Products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+  font-family: Verdana,Geneva,sans-serif;
+  background-image: url('congruent_outline.png');
+}
+
+.navbar-brand {
+  font-family: 'Syncopate', sans-serif;
+  font-size: 2em; 
+}
+
+.product-image {
+  width: 100%;
+}

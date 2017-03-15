@@ -4,6 +4,7 @@
 body {
   font-family: Verdana,Geneva,sans-serif;
   background-image: url('congruent_outline.png');
+  color: white;
 }
 
 .navbar-brand {
@@ -13,4 +14,9 @@ body {
 
 .product-image {
   width: 100%;
+}
+
+.well {
+  min-height: 540px;
+  background-color: rgba(255, 255, 255, 0.3);
 }

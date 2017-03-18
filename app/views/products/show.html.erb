@@ -4,7 +4,7 @@
 <p>MSRP: <%= number_to_currency(@product.price) %><p>
 <p>Tax: <%= number_to_currency(@product.tax) %><p>
 <p>Total: <%= number_to_currency(@product.total) %><p>
-<p><%= @product.image %><p>
+<img class="product-image" src="<%= @product.image %>" alt="<% @product.name %>">
 <p><%= @product.description %><p>
 <%= form_tag "/products/#{@product.id}", method: :delete do %>
   <input type="submit" value="delete product">

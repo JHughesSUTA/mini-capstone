@@ -1,1 +1,20 @@
-pr
+<h1>New Product</h1>
+ <%= form_tag "/products", method: :post do %>
+   <div class="form-group">
+     <label for="exampleProductName">Product Name</label>
+     <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Product" name="form_name">
+   </div>
+   <div class="form-group">
+     <label for="examplePrice">Price</label>
+     <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Price" name="form_price">
+   </div>
+   <div class="form-group">
+     <label for="exampleImage">Image</label>
+     <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Image URL" name="form_image">
+   </div>
+   <div class="form-group">
+     <label for="exampleDescription">Description</label>
+     <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Description" name="form_description">
+   </div>
+   <button type="submit" class="btn btn-default">Submit</button>
+ <% end %>

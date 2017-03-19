@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
   def index
-    @products = Product.all
+    sort_attribute = params[:sort_by] || "id"
+    @products = Product.all.order(sort_attribute)
     render "index.html.erb"
   end
 
@@ -49,5 +50,11 @@ class ProductsController < ApplicationController
     @product.destroy
     flash[:danger] = "Product deleted"
     redirect_to "/products"
+  end
+
+  def discounted
+    sort_attribute = params[:sort_by] || "id"
+    @products = Product.where("price < ?", 100)
+    render "discounted.html.erb"
   end
 end

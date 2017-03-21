@@ -1,5 +1,6 @@
 <h1>Product info</h1>
 <h2><%= @product.name %></h2>
+<h4>Supplied by <%= @product.supplier.name %></h4>
 <p><%= @product.sale_message %></p>
 <p>MSRP: <%= number_to_currency(@product.price) %><p>
 <p>Tax: <%= number_to_currency(@product.tax) %><p>

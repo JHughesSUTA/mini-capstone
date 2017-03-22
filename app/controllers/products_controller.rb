@@ -42,7 +42,6 @@ class ProductsController < ApplicationController
     @product = Product.find_by(id: product_id)
     @product.name = params[:form_name]
     @product.price = params[:form_price]
-    @product.image = params[:form_image]
     @product.description = params[:form_description]
     @product.save
     flash[:success] = "Product Updated"

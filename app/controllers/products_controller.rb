@@ -17,6 +17,11 @@ class ProductsController < ApplicationController
       description: params[:form_description]
     )
     product.save
+    image = Image.new(
+      url: params[:image],
+      product_id: @product.id 
+    )
+    image.save
     render "create.html.erb"
   end
 

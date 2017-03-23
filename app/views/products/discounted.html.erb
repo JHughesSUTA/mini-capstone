@@ -7,7 +7,7 @@
       <div class="col-md-4">
         <div class="well">
           <h3><a href="/products/<%= product.id %>"><%= product.name %></a></h3>
-          <img class="product-image" src="<%= product.image %>" alt="<% product.name %>"> 
+          <img class="product-image" src="<%= product.images[0].url %>" alt="<% product.name %>"> 
           <h4><%= number_to_currency(product.price) %></h4>
           <h4><%= product.description %></h4>
         </div>

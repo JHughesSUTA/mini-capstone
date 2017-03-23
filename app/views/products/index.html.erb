@@ -1,3 +1,6 @@
+<% if current_user %>
+  <p>Hi, <%= current_user.name %>!</p>
+<% end %> 
 <h1>All Products</h1>
 <p>Sort by: </p><a href="/products?sort_by=price">PRICE</a>
 <a href="/products?sort_by=price desc">PRICE (Descending)</a>

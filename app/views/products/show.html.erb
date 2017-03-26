@@ -21,7 +21,7 @@
     <input type="integer" class="form-control" placeholder="0" name="quantity">
   </div><div class="form-group">
     <label>Product ID</label>
-    <input type="integer" class="form-control" placeholder="0" name="product id">
+    <input type="hidden" class="form-control" placeholder="0" name="product id" value="<%= @product.id %>">
   </div>
   <button type="submit" class="btn btn-default">Buy now!</button>
 <%end%>

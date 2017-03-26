@@ -1,4 +1,4 @@
 class User < ApplicationRecord
   has_secure_password
-  has_man :orders
+  has_many :orders
 end

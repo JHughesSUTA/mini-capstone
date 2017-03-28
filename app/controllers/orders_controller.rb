@@ -1,17 +1,11 @@
 class OrdersController < ApplicationController
   def create
-    product = Product.find_by(id: params[:product_id])
-    subtotal = product.price * params[:quantity].to_i  #i dont undestand this line
-    tax = subtotal * 0.09
-    total = subtotal + tax
     order = Order.new(
       quantity: params[:quantity], 
       product_id: params["product_id"],
-      subtotal: subtotal,
-      tax: tax,
-      total: total,
       user_id: current_user.id
     )
+    order.calculate_totals
     order.save
     redirect_to "/orders/#{order.id}"
     # @product = Product.find_by(id: params["product id"])

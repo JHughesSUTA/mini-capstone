@@ -21,7 +21,7 @@
 <a href="/products/<%= @product.id %>/edit">Edit Product</a>
 <a href="/products">Back to all products</a>
 
-<%= form_tag "/orders", method: :post do %>
+<%= form_tag "/carted_products", method: :post do %>
   <div class="form-group">
     <label>Quantity</label>
     <input type="integer" class="form-control" placeholder="0" name="quantity">

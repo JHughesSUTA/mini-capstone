@@ -1,4 +1,4 @@
-class CartedProductsController < ApplicationController
+class CartedProductsController < ApplicationController 
   def index
     @carted_products = current_user.carted_products.where(status: "carted")
     render "index.html.erb"

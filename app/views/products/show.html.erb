@@ -1,7 +1,7 @@
 <h1>Product info</h1>
 <h2><%= @product.name %></h2>
 <h4>Supplied by <%= @product.supplier.name %></h4>
-<h4>Categories</h4> 
+<h4>Categories</h4>
 <ul>
   <% @product.categories.each do |category| %>
     <li><%= category.name %> </li>

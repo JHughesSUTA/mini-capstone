@@ -1,4 +1,4 @@
-class ProductsController < ApplicationController
+class ProductsController < ApplicationController 
   def index
 
     if params[:discounted] == "true"

@@ -2,5 +2,8 @@
 <% @carted_products.each do |carted_product| %>
   <p>Product Name: <%= carted_product.product.name %></p>
   <p>Quantity: <%= carted_product.quantity %></p>
-
 <% end %> 
+
+<%= form_tag "/orders", method: :post do %>
+  <button type="submit" class="btn btn-default">Buy Now!</button>
+<%end%>

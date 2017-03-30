@@ -1,8 +1,17 @@
 <h1>Order Info:</h1>
+<h3>Order id: <%= @order.id %></h3>
+<h3>Email: <%= @order.user.email %></h3>
 
+<% @order.carted_products.each do |carted_product| %>
+  <h3>Product Name: <%= carted_product.product.name %></h3>
+  <% if carted_product.product.images.first %>
+    <img src="<%= carted_product.product.images.first.url %>" alt="">
+  <% end %> 
+<% end %>
 
-
-
+<h3>Subtotal: <%= @order.subtotal %> </h3>
+<h3>Tax: <%= @order.tax %> </h3>
+<h3>Total: <%= @order.total %> </h3>
 
 
 

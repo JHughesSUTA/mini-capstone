@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController 
-  def index
+  before_action :authenticate_admin!, except: [:index, :show]
 
+  def index
     if params[:discounted] == "true"
       @products = Product.where("price < ?", 10)
     elsif params[:category]

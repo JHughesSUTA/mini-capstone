@@ -4,7 +4,12 @@ class Product < ApplicationRecord
   has_many :orders, through: :carted_products
   has_many :carted_products
   has_many :category_products
-  has_many :categories, through: :category_products 
+  has_many :categories, through: :category_products
+
+  validates :name, :price, :description, presence: true
+  validates :name, uniqueness: true
+  validates :price, numericality: true
+  validates :description, length: { maximum: 500 }
 
   def sale_message 
     if price.to_f < 100

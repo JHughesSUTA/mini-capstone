@@ -15,10 +15,12 @@
   <img class="product-image" src="<%= image.url %>" alt="<% @product.name %>">
 <% end %>
 <p><%= @product.description %><p>
-<%= form_tag "/products/#{@product.id}", method: :delete do %>
-  <input type="submit" value="delete product">
+<% if current_user && current_user.admin %>
+  <%= form_tag "/products/#{@product.id}", method: :delete do %>
+    <input type="submit" value="delete product">
+  <% end %>
+  <a href="/products/<%= @product.id %>/edit">Edit Product</a>
 <% end %>
-<a href="/products/<%= @product.id %>/edit">Edit Product</a>
 <a href="/products">Back to all products</a>
 
 <%= form_tag "/carted_products", method: :post do %>
@@ -26,7 +28,7 @@
     <label>Quantity</label>
     <input type="integer" class="form-control" placeholder="0" name="quantity">
   </div><div class="form-group">
-    <label>Product ID</label>
+    <label> </label>
     <input type="hidden" class="form-control" placeholder="0" name="product_id" value="<%= @product.id %>">
   </div>
   <button type="submit" class="btn btn-default">Add To Cart</button>

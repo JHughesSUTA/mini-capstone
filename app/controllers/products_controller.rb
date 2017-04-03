@@ -15,23 +15,28 @@ class ProductsController < ApplicationController
   end
 
   def new
+    @product = Product.new
     render "new.html.erb"
   end
 
   def create
-    product = Product.new(
+    @product = Product.new(
       name: params[:form_name],
       price: params[:form_price],
-      image: params[:form_image],
+      # image: params[:form_image],
       description: params[:form_description]
     )
-    product.save
-    image = Image.new(
-      url: params[:image],
-      product_id: @product.id 
-    )
-    image.save
-    render "create.html.erb"
+    if @product.save
+      image = Image.new(
+        url: params[:form_image],
+        product_id: @product.id 
+      )
+      image.save
+      flash[:success] = "Product Created"   
+      redirect_to "/products/#{@product.id}"
+    else
+      render "new.html.erb"
+    end
   end
 
   def show
@@ -47,14 +52,17 @@ class ProductsController < ApplicationController
   end
 
   def update
-    product_id = params[:id]
-    @product = Product.find_by(id: product_id)
-    @product.name = params[:form_name]
-    @product.price = params[:form_price]
-    @product.description = params[:form_description]
-    @product.save
-    flash[:success] = "Product Updated"
-    redirect_to "/products/#{product_id}"
+    @product = Product.find_by(id: params[:id])
+    if @product.update(
+      name: params[:form_name],
+      price: params[:form_price],
+      description: params[:form_description]
+    )
+      flash[:success] = "Product Updated"
+      redirect_to "/products/#{@product_id}"
+    else 
+      render "edit.html.erb"
+    end
   end
 
   def destroy
